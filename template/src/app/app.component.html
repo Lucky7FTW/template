@@ -1,22 +1,17 @@
-<!-- Conditionally display the Navbar -->
 <app-navbar *ngIf="config?.navbar?.enabled"></app-navbar>
 
-<!-- Main Layout (Sidebar + Content) -->
 <div class="main-content">
   <app-sidebar *ngIf="config?.sidebar?.enabled"></app-sidebar>
-
-  <!-- Main content area (could contain router-outlet or anything) -->
   <div class="content">
     <h1>Welcome to Our Angular App</h1>
     <p>This is where your main content would go.</p>
   </div>
 </div>
 
-<!-- Conditionally display the Language Picker -->
 <app-language-picker
   *ngIf="config?.languagePicker?.enabled"
-  [languages]="config?.languagePicker.languages">
+  [languages]="config?.languagePicker?.languages!"
+>
 </app-language-picker>
 
-<!-- Conditionally display the Footer -->
 <app-footer *ngIf="config?.footer?.enabled"></app-footer>
