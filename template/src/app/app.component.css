@@ -1,10 +1,13 @@
+
 .main-content {
     display: flex;
   }
+  
   .sidebar {
     width: 200px;
     background-color: #efefef;
   }
+  
   .content {
     flex: 1;
     padding: 1rem;

@@ -1,0 +1,6 @@
+<label for="languageSelect">Select Language:</label>
+<select id="languageSelect">
+  <option *ngFor="let lang of languages" [value]="lang">
+    {{ lang }}
+  </option>
+</select>
