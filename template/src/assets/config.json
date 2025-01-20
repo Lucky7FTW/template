@@ -1,0 +1,15 @@
+{
+    "sidebar": {
+      "enabled": true
+    },
+    "navbar": {
+      "enabled": true
+    },
+    "footer": {
+      "enabled": true
+    },
+    "languagePicker": {
+      "enabled": true,
+      "languages": ["English", "Spanish", "French"]
+    }
+  }
