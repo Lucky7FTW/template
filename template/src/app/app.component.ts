@@ -19,7 +19,6 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     NavbarComponent,
     SidebarComponent,
-    LanguagePickerComponent,
     FooterComponent
   ]
 })
