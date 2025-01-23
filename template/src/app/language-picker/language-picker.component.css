@@ -1,3 +1,6 @@
 #languageSelect {
   margin-left: 0.5rem;
 }
+select {
+  font-size: 1rem;
+}
