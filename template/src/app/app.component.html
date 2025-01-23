@@ -1,6 +1,7 @@
 <app-header
   *ngIf="config?.header?.enabled"
-  [title]="config?.header?.title || 'Default Title'">
+  [title]="config?.header?.title || ''"
+  [languages]="config?.languagePicker?.enabled ? (config?.languagePicker?.languages || []) : []">
 </app-header>
 
 <app-navbar *ngIf="config?.navbar?.enabled"></app-navbar>
@@ -12,10 +13,5 @@
     <p>This is where your main content would go.</p>
   </div>
 </div>
-
-<app-language-picker
-  *ngIf="config?.languagePicker?.enabled"
-  [languages]="config?.languagePicker?.languages ?? []">
-</app-language-picker>
 
 <app-footer *ngIf="config?.footer?.enabled"></app-footer>

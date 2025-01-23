@@ -1,5 +1,7 @@
-
 <header class="header">
     <h1>{{ title }}</h1>
+    <div class="language-picker-container" *ngIf="languages.length > 0">
+      <app-language-picker [languages]="languages"></app-language-picker>
+    </div>
   </header>
   

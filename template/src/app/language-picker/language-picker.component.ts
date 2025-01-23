@@ -15,7 +15,7 @@ interface LanguageConfig {
 })
 export class LanguagePickerComponent {
   @Input() languages: LanguageConfig[] = [];
-  
+
   get enabledLanguages(): LanguageConfig[] {
     return this.languages.filter(lang => lang.enabled);
   }
