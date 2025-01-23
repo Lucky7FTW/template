@@ -1,15 +1,32 @@
 {
-    "sidebar": {
-      "enabled": true
-    },
-    "navbar": {
-      "enabled": true
-    },
-    "footer": {
-      "enabled": true
-    },
-    "languagePicker": {
-      "enabled": true,
-      "languages": ["English", "Spanish", "French"]
-    }
+  "sidebar": {
+    "enabled": true
+  },
+  "navbar": {
+    "enabled": true
+  },
+  "footer": {
+    "enabled": true
+  },
+  "header": {
+    "enabled": true,
+    "title": "Mihais Portfolio"
+  },
+  "languagePicker": {
+    "enabled": true,
+    "languages": [
+      {
+        "name": "English",
+        "enabled": true
+      },
+      {
+        "name": "Spanish",
+        "enabled": false
+      },
+      {
+        "name": "French",
+        "enabled": true
+      }
+    ]
   }
+}

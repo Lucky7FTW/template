@@ -1,3 +1,8 @@
+<app-header
+  *ngIf="config?.header?.enabled"
+  [title]="config?.header?.title || 'Default Title'">
+</app-header>
+
 <app-navbar *ngIf="config?.navbar?.enabled"></app-navbar>
 
 <div class="main-content">
@@ -10,8 +15,7 @@
 
 <app-language-picker
   *ngIf="config?.languagePicker?.enabled"
-  [languages]="config?.languagePicker?.languages!"
->
+  [languages]="config?.languagePicker?.languages ?? []">
 </app-language-picker>
 
 <app-footer *ngIf="config?.footer?.enabled"></app-footer>

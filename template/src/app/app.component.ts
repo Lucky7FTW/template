@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LanguagePickerComponent } from './language-picker/language-picker.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @Component({
   standalone: true,
@@ -18,7 +19,8 @@ import { FooterComponent } from './footer/footer.component';
     NavbarComponent,
     SidebarComponent,
     LanguagePickerComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent
   ]
 })
 export class AppComponent implements OnInit {

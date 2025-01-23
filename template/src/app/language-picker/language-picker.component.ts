@@ -1,13 +1,22 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+interface LanguageConfig {
+  name: string;
+  enabled: boolean;
+}
+
 @Component({
-  selector: 'app-language-picker',            
-  imports: [CommonModule],
-  standalone: true,     
+  standalone: true,
+  selector: 'app-language-picker',
   templateUrl: './language-picker.component.html',
-  styleUrls: ['./language-picker.component.css']
+  styleUrls: ['./language-picker.component.css'],
+  imports: [CommonModule]
 })
 export class LanguagePickerComponent {
-  @Input() languages: string[] = [];
+  @Input() languages: LanguageConfig[] = [];
+  
+  get enabledLanguages(): LanguageConfig[] {
+    return this.languages.filter(lang => lang.enabled);
+  }
 }

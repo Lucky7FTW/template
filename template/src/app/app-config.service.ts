@@ -7,9 +7,16 @@ export interface Config {
   sidebar: { enabled: boolean };
   navbar: { enabled: boolean };
   footer: { enabled: boolean };
+  header: {
+    enabled: boolean;
+    title: string;
+  };
   languagePicker: {
     enabled: boolean;
-    languages: string[];
+    languages: Array<{
+      name: string;
+      enabled: boolean;
+    }>;
   };
 }
 
