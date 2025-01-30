@@ -1,8 +1,45 @@
 <nav class="navbar">
-    <ul class="nav-links">
-      <li><a href="#">Nav Link 1</a></li>
-      <li><a href="#">Nav Link 2</a></li>
-      <li><a href="#">Nav Link 3</a></li>
-    </ul>
-  </nav>
-  
+  <ul class="nav-links">
+    <!-- Nav Link 1 -->
+    <li class="dropdown"
+        [class.open]="isDropdownOpen['nav1']"
+        (mouseenter)="onMouseEnter('nav1')"
+        (mouseleave)="onMouseLeave('nav1')"
+        (click)="toggleDropdown('nav1')">
+      <a href="#">Nav Link 1</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Sub Link 1</a></li>
+        <li><a href="#">Sub Link 2</a></li>
+        <li><a href="#">Sub Link 3</a></li>
+      </ul>
+    </li>
+
+    <!-- Nav Link 2 -->
+    <li class="dropdown"
+        [class.open]="isDropdownOpen['nav2']"
+        (mouseenter)="onMouseEnter('nav2')"
+        (mouseleave)="onMouseLeave('nav2')"
+        (click)="toggleDropdown('nav2')">
+      <a href="#">Nav Link 2</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Option A</a></li>
+        <li><a href="#">Option B</a></li>
+        <li><a href="#">Option C</a></li>
+      </ul>
+    </li>
+
+    <!-- Separate Dropdown -->
+    <li class="dropdown"
+        [class.open]="isDropdownOpen['dropdown']"
+        (mouseenter)="onMouseEnter('dropdown')"
+        (mouseleave)="onMouseLeave('dropdown')"
+        (click)="toggleDropdown('dropdown')">
+      <a href="#">Dropdown</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Option 1</a></li>
+        <li><a href="#">Option 2</a></li>
+        <li><a href="#">Option 3</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>

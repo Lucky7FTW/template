@@ -3,9 +3,9 @@
     "enabled": true,
     "position": "sticky" 
   },
-  "navbar": {
-    "enabled": true,
-    "position": "flex"
+    "navbar": {
+      "enabled": true,
+      "dropdownTrigger": "hover"
   },
   "footer": {
     "enabled": true,
