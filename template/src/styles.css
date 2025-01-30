@@ -1,1 +1,174 @@
-/* You can add global styles to this file, and also import other style files */
+/* 🌟 Import a modern Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+/* 🌟 Apply the modern font */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* 🌟 Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Sticky header */
+.header.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* 🌟 Smaller Footer */
+.footer {
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  background: #ffffff;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Sticky footer */
+.footer.sticky {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* 🌟 Sidebar */
+.sidebar {
+  width: 250px;
+  background: #ffffff;
+  padding: 20px;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Sticky sidebar */
+.sidebar.sticky {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 1000;
+}
+
+/* Sidebar Links */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 10px 15px;
+  display: block;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  background: #f1f1f1;
+}
+
+/* 🌟 Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  background: #f1f1f1;
+}
+
+/* 🌟 Stylish Language Picker */
+label[for="languageSelect"] {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+  margin-right: 8px;
+}
+
+/* Dropdown Select */
+#languageSelect {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover & Focus Effect */
+#languageSelect:hover,
+#languageSelect:focus {
+  border-color: #666;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* 🌟 Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+  }
+}
