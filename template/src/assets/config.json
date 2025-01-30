@@ -1,16 +1,20 @@
 {
   "sidebar": {
-    "enabled": true
+    "enabled": true,
+    "position": "sticky" 
   },
   "navbar": {
-    "enabled": true
+    "enabled": true,
+    "position": "flex"
   },
   "footer": {
-    "enabled": true
+    "enabled": true,
+    "position": "sticky"
   },
   "header": {
     "enabled": true,
-    "title": "Mihai's Template"
+    "title": "Mihai's Template",
+    "position": "sticky"
   },
   "languagePicker": {
     "enabled": true,
@@ -25,6 +29,10 @@
       },
       {
         "name": "French",
+        "enabled": true
+      },
+      {
+        "name": "German",
         "enabled": true
       }
     ]

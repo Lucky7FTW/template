@@ -1,21 +1,22 @@
-// src/app/header/header.component.ts
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LanguagePickerComponent } from '../language-picker/language-picker.component';
-
-interface LanguageConfig {
-  name: string;
-  enabled: boolean;
-}
+import { LanguagePickerComponent } from '../language-picker/language-picker.component'; // Import the component
 
 @Component({
   standalone: true,
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  imports: [CommonModule, LanguagePickerComponent]
+  imports: [CommonModule, LanguagePickerComponent], // Include in imports
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   @Input() title?: string;
-  @Input() languages: LanguageConfig[] = [];
+  @Input() languages: { name: string; enabled: boolean }[] = [];
+  @Input() position: 'sticky' | 'flex' = 'flex';
+
+  cssClass = '';
+
+  ngOnInit() {
+    this.cssClass = `header ${this.position}`;
+  }
 }
