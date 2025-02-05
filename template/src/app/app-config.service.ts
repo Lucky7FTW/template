@@ -1,7 +1,6 @@
-// src/app/app-config.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 
 export interface Config {
   sidebar: { enabled: boolean };
@@ -25,10 +24,22 @@ export interface Config {
 })
 export class AppConfigService {
   private configUrl = 'assets/config.json';
+  private _config: Config;
 
   constructor(private http: HttpClient) {}
 
   getConfig(): Observable<Config> {
     return this.http.get<Config>(this.configUrl);
+  }
+
+  loadConfig(): Promise<Config> {
+    return firstValueFrom(this.getConfig()).then((config) => {
+      this._config = config;
+      return config;
+    });
+  }
+
+  get config(): Config {
+    return this._config;
   }
 }
