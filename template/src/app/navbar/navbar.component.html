@@ -3,9 +3,10 @@
     <!-- Nav Link 1 -->
     <li class="dropdown"
         [class.open]="isDropdownOpen['nav1']"
-        (mouseenter)="onMouseEnter('nav1')"
-        (mouseleave)="onMouseLeave('nav1')"
-        (click)="toggleDropdown('nav1')">
+        [attr.data-trigger]="dropdownTrigger"
+        (click)="toggleDropdown('nav1')"
+        (mouseenter)="dropdownTrigger === 'hover' ? onMouseEnter('nav1') : null"
+        (mouseleave)="dropdownTrigger === 'hover' ? onMouseLeave('nav1') : null">
       <a href="#">Nav Link 1</a>
       <ul class="dropdown-menu">
         <li><a href="#">Sub Link 1</a></li>
@@ -17,9 +18,10 @@
     <!-- Nav Link 2 -->
     <li class="dropdown"
         [class.open]="isDropdownOpen['nav2']"
-        (mouseenter)="onMouseEnter('nav2')"
-        (mouseleave)="onMouseLeave('nav2')"
-        (click)="toggleDropdown('nav2')">
+        [attr.data-trigger]="dropdownTrigger"
+        (click)="toggleDropdown('nav2')"
+        (mouseenter)="dropdownTrigger === 'hover' ? onMouseEnter('nav2') : null"
+        (mouseleave)="dropdownTrigger === 'hover' ? onMouseLeave('nav2') : null">
       <a href="#">Nav Link 2</a>
       <ul class="dropdown-menu">
         <li><a href="#">Option A</a></li>
@@ -31,9 +33,10 @@
     <!-- Separate Dropdown -->
     <li class="dropdown"
         [class.open]="isDropdownOpen['dropdown']"
-        (mouseenter)="onMouseEnter('dropdown')"
-        (mouseleave)="onMouseLeave('dropdown')"
-        (click)="toggleDropdown('dropdown')">
+        [attr.data-trigger]="dropdownTrigger"
+        (click)="toggleDropdown('dropdown')"
+        (mouseenter)="dropdownTrigger === 'hover' ? onMouseEnter('dropdown') : null"
+        (mouseleave)="dropdownTrigger === 'hover' ? onMouseLeave('dropdown') : null">
       <a href="#">Dropdown</a>
       <ul class="dropdown-menu">
         <li><a href="#">Option 1</a></li>
