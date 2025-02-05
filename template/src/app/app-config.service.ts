@@ -1,21 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, firstValueFrom } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 
 export interface Config {
   sidebar: { enabled: boolean };
   navbar: { enabled: boolean };
   footer: { enabled: boolean };
-  header: {
-    enabled: boolean;
-    title: string;
-  };
+  header: { enabled: boolean; title: string };
   languagePicker: {
     enabled: boolean;
-    languages: Array<{
-      name: string;
-      enabled: boolean;
-    }>;
+    languages: Array<{ name: string; enabled: boolean }>;
   };
 }
 
@@ -28,9 +22,11 @@ export class AppConfigService {
 
   constructor(private http: HttpClient) {}
 
-  getConfig(): Observable<Config> {
+  // Returns the config as an observable.
+  getConfig() {
     return this.http.get<Config>(this.configUrl);
   }
+
 
   loadConfig(): Promise<Config> {
     return firstValueFrom(this.getConfig()).then((config) => {
