@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface LanguageConfig {
@@ -16,7 +16,13 @@ interface LanguageConfig {
 export class LanguagePickerComponent {
   @Input() languages: LanguageConfig[] = [];
 
+  @Output() languageSelected = new EventEmitter<string>();
+
   get enabledLanguages(): LanguageConfig[] {
     return this.languages.filter(lang => lang.enabled);
+  }
+
+  onLanguageChange(langName: string) {
+    this.languageSelected.emit(langName);
   }
 }

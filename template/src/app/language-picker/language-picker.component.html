@@ -1,5 +1,7 @@
 <label for="languageSelect">Select Language:</label>
-<select id="languageSelect">
+<select
+  id="languageSelect"
+  (change)="onLanguageChange($any($event.target).value)">
   <option
     *ngFor="let lang of enabledLanguages"
     [value]="lang.name">
