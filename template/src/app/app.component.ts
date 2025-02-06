@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppConfigService, Config } from './app-config.service';
 
-// Ngx-translate
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
-// Your other standalone components
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
