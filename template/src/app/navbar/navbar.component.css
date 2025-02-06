@@ -1,4 +1,3 @@
-/* navbar.component.css */
 .navbar {
   background-color: #34495e;
   padding: 0.75rem 2rem;
@@ -26,6 +25,7 @@
   font-weight: 500;
 }
 
+/* Dropdown menu container styles */
 .dropdown-menu {
   position: absolute;
   top: 110%;
@@ -38,16 +38,23 @@
   transform: translateY(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
   min-width: 150px;
-  z-index: 20;
+  z-index: 1001;
+  
+  /* Ensure the dropdown menu uses a block layout */
+  display: block;
 }
 
+/* When dropdown is open, make it visible */
 .dropdown.open .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
+/* Ensure each dropdown menu item is a block element taking full width */
 .dropdown-menu li {
+  display: block;
+  width: 100%;
   border-bottom: 1px solid #3a506b;
 }
 
@@ -55,13 +62,16 @@
   border-bottom: none;
 }
 
+/* Ensure each link inside a dropdown menu item is block-level */
 .dropdown-menu li a {
   display: block;
+  width: 100%;
   padding: 0.5rem 1rem;
   color: #ecf0f1;
   transition: background-color 0.3s ease;
 }
 
+/* Hover effect for dropdown menu links */
 .dropdown-menu li a:hover {
   background-color: #3a506b;
 }
