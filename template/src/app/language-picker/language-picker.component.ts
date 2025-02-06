@@ -15,13 +15,14 @@ interface LanguageConfig {
 })
 export class LanguagePickerComponent {
   @Input() languages: LanguageConfig[] = [];
-
   @Output() languageSelected = new EventEmitter<string>();
 
+  // Only show languages that have "enabled = true"
   get enabledLanguages(): LanguageConfig[] {
     return this.languages.filter(lang => lang.enabled);
   }
 
+  // Called when the user changes the dropdown
   onLanguageChange(langName: string) {
     this.languageSelected.emit(langName);
   }

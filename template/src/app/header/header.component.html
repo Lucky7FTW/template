@@ -1,6 +1,10 @@
-<header class="header" [ngClass]="cssClass">
+<header [ngClass]="cssClass">
   <h1>{{ title }}</h1>
+
   <div class="language-picker-container" *ngIf="languages.length > 0">
-      <app-language-picker [languages]="languages"></app-language-picker>
+    <app-language-picker
+      [languages]="languages"
+      (languageSelected)="onLanguagePicked($event)">
+    </app-language-picker>
   </div>
 </header>
