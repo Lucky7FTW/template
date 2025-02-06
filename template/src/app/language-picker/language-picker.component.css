@@ -1,6 +1,22 @@
-#languageSelect {
-  margin-left: 0.5rem;
+/* language-picker.component.css */
+label[for="languageSelect"] {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  color: #555;
 }
-select {
+
+select#languageSelect {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+select#languageSelect:focus {
+  border-color: #007BFF;
+  outline: none;
 }

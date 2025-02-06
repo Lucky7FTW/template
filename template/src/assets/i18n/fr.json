@@ -1,0 +1,28 @@
+{
+    "HEADER": {
+      "TITLE": "Mon Template Angular"
+    },
+    "LANGUAGE_PICKER": {
+      "SELECT_LANGUAGE": "Choisir la langue"
+    },
+    "NAVBAR": {
+      "NAV_LINK_1": "Lien de navigation 1",
+      "NAV_LINK_2": "Lien de navigation 2",
+      "DROPDOWN": "Menu déroulant",
+      "SUB_LINK_1": "Sous-lien 1",
+      "SUB_LINK_2": "Sous-lien 2",
+      "SUB_LINK_3": "Sous-lien 3",
+      "OPTION_A": "Option A",
+      "OPTION_B": "Option B",
+      "OPTION_C": "Option C"
+    },
+    "SIDEBAR": {
+      "SIDEBAR_LINK_1": "Lien de la barre latérale 1",
+      "SIDEBAR_LINK_2": "Lien de la barre latérale 2",
+      "SIDEBAR_LINK_3": "Lien de la barre latérale 3"
+    },
+    "FOOTER": {
+      "CONTENT": "Contenu du pied de page"
+    }
+  }
+  
