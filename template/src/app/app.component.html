@@ -1,172 +1,19 @@
 <app-header
   *ngIf="config?.header?.enabled"
   [title]="config?.header?.title"
-  [languages]="config?.languagePicker?.enabled ? (config?.languagePicker?.languages || []) : []">
+  [languages]="config?.languagePicker?.enabled ? config?.languagePicker?.languages ?? [] : []"
+  (languageSelected)="onLanguageChange($event)">
 </app-header>
 
 <app-navbar *ngIf="config?.navbar?.enabled"></app-navbar>
 
 <div class="main-content">
   <app-sidebar *ngIf="config?.sidebar?.enabled"></app-sidebar>
+
   <div class="content">
-    <h1>Text template</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. 
-      Sed vehicula, sapien non fermentum cursus, justo sapien scelerisque dolor, 
-      vel sollicitudin metus arcu vitae risus. Donec consequat, nunc at tincidunt 
-      convallis, nulla risus dapibus ligula, vitae cursus arcu urna et ligula. 
-      Fusce non lacus ut purus egestas fringilla. Cras eget arcu a enim convallis 
-      pharetra. Mauris tincidunt, nisl non consequat vehicula, libero mauris 
-      consequat urna, nec pulvinar nisl erat eget risus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec 
-      felis id sapien consequat pretium. Integer in quam vel purus efficitur 
-      convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero 
-      pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl 
-      fermentum finibus.
-    </p>
+    <h1>{{ 'MAIN_CONTENT.TITLE' | translate }}</h1>
     
+    <p>Some paragraph text here...</p>
   </div>
 </div>
 

@@ -1,0 +1,40 @@
+{
+    "HEADER": {
+      "TITLE": "My Angular Template"
+    },
+    "LANGUAGE_PICKER": {
+      "SELECT_LANGUAGE": "Select Language"
+    },
+    "NAVBAR": {
+      "NAV_LINK_1": "Nav Link 1",
+      "NAV_LINK_2": "Nav Link 2",
+      "DROPDOWN": "Dropdown",
+      "SUB_LINK_1": "Sub Link 1",
+      "SUB_LINK_2": "Sub Link 2",
+      "SUB_LINK_3": "Sub Link 3",
+      "OPTION_A": "Option A",
+      "OPTION_B": "Option B",
+      "OPTION_C": "Option C"
+    },
+    "SIDEBAR": {
+      "SIDEBAR_LINK_1": "Sidebar Link 1",
+      "SIDEBAR_LINK_2": "Sidebar Link 2",
+      "SIDEBAR_LINK_3": "Sidebar Link 3"
+    },
+    "FOOTER": {
+      "CONTENT": "Footer Content"
+    },
+    "MAIN_CONTENT": {
+      "TITLE": "Text template",
+      "PARAGRAPH_1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed vehicula, sapien non fermentum cursus, justo sapien scelerisque dolor, vel sollicitudin metus arcu vitae risus. Donec consequat, nunc at tincidunt convallis, nulla risus dapibus ligula, vitae cursus arcu urna et ligula. Fusce non lacus ut purus egestas fringilla. Cras eget arcu a enim convallis pharetra. Mauris tincidunt, nisl non consequat vehicula, libero mauris consequat urna, nec pulvinar nisl erat eget risus.",
+      "PARAGRAPH_2": "Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec felis id sapien consequat pretium. Integer in quam vel purus efficitur convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl fermentum finibus.",
+      "PARAGRAPH_3": "Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec felis id sapien consequat pretium. Integer in quam vel purus efficitur convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero pulvinar urna, eu bibendum massa nisl et urna. Vivamus nec ipsum non nisl fermentum finibus.",
+      "PARAGRAPH_4": "Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt. Ut nec felis id sapien consequat pretium. Integer in quam vel purus efficitur convallis. Praesent vulputate, ligula a fermentum efficitur, nunc libero pulvinar urna, eu bibendum massa nisl et urna.",
+      "PARAGRAPH_5": "Vivamus nec ipsum non nisl fermentum finibus. Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt.",
+      "PARAGRAPH_6": "Mauris tincidunt, nisl non consequat vehicula, libero mauris consequat urna, nec pulvinar nisl erat eget risus.",
+      "PARAGRAPH_7": "...",
+      "PARAGRAPH_8": "...",
+      "PARAGRAPH_9": "etc..."
+    }
+  }
+  

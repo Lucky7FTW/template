@@ -1,12 +1,14 @@
-
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppConfigService, Config } from './app-config.service';
 
+// Ngx-translate
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
+// Your other standalone components
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { LanguagePickerComponent } from './language-picker/language-picker.component';
 import { FooterComponent } from './footer/footer.component';
 
 @Component({
@@ -16,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
   styleUrls: ['./app.component.css'],
   imports: [
     CommonModule,
+    TranslateModule,        
     HeaderComponent,
     NavbarComponent,
     SidebarComponent,
@@ -25,17 +28,28 @@ import { FooterComponent } from './footer/footer.component';
 export class AppComponent implements OnInit {
   config: Config | undefined;
 
-  constructor(private configService: AppConfigService) {}
+  constructor(
+    private configService: AppConfigService,
+    private translate: TranslateService
+  ) {
+    this.translate.setDefaultLang('en');
+  }
 
   ngOnInit(): void {
     this.configService.getConfig().subscribe({
       next: (data: Config) => {
-        console.log('Loaded config:', data); // Debug log
+        console.log('Loaded config:', data); 
         this.config = data;
+
       },
       error: (error) => {
         console.error('Error loading config:', error);
       }
     });
+  }
+
+  onLanguageChange(langCode: string): void {
+    console.log('Switching language to:', langCode);
+    this.translate.use(langCode);
   }
 }
