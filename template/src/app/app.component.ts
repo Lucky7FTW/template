@@ -46,8 +46,20 @@ export class AppComponent implements OnInit {
     });
   }
 
-  onLanguageChange(langCode: string): void {
-    console.log('Switching language to:', langCode);
-    this.translate.use(langCode);
+  onLanguageChange(langName: string): void {
+    const code = this.mapLanguageNameToCode(langName);
+  
+    console.log('Switching language to:', code);
+    this.translate.use(code);
+  }
+  
+  private mapLanguageNameToCode(name: string): string {
+    switch (name.toLowerCase()) {
+      case 'english':  return 'en';
+      case 'spanish':  return 'es';
+      case 'french':   return 'fr';
+      case 'german':   return 'de';
+      default:         return 'en'; // Fallback to English
+    }
   }
 }
