@@ -12,7 +12,7 @@
 <div class="main-content">
   <app-sidebar
     *ngIf="config?.sidebar?.enabled"
-    [position]="config?.sidebar?.position || 'sticky'">
+    [position]="config?.footer?.position === 'flex' ? 'flex' : 'sticky'">
   </app-sidebar>
 
   <div class="content">
@@ -31,5 +31,5 @@
 
 <app-footer
   *ngIf="config?.footer?.enabled"
-  [position]="config?.footer?.position || 'sticky'">
+  [position]="config?.footer?.position === 'flex' ? 'flex' : 'sticky'">
 </app-footer>

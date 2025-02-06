@@ -1,15 +1,24 @@
-// src/app/app-config.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Config {
-  sidebar: { enabled: boolean };
-  navbar: { enabled: boolean };
-  footer: { enabled: boolean };
+  sidebar: {
+    enabled: boolean;
+    position: 'sticky' | 'flex' | string;  
+  };
+  navbar: {
+    enabled: boolean;
+    dropdownTrigger: string;
+  };
+  footer: {
+    enabled: boolean;
+    position: 'sticky' | 'flex' | string;  
+  };
   header: {
     enabled: boolean;
     title: string;
+    position: 'sticky' | 'flex' | string; 
   };
   languagePicker: {
     enabled: boolean;
