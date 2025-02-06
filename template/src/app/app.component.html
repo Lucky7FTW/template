@@ -1,20 +1,35 @@
 <app-header
   *ngIf="config?.header?.enabled"
   [title]="config?.header?.title"
-  [languages]="config?.languagePicker?.enabled ? config?.languagePicker?.languages ?? [] : []"
+  [languages]="config?.languagePicker?.enabled ? (config?.languagePicker?.languages || []) : []"
   (languageSelected)="onLanguageChange($event)">
 </app-header>
 
-<app-navbar *ngIf="config?.navbar?.enabled"></app-navbar>
+<app-navbar
+  *ngIf="config?.navbar?.enabled">
+</app-navbar>
 
 <div class="main-content">
-  <app-sidebar *ngIf="config?.sidebar?.enabled"></app-sidebar>
+  <app-sidebar
+    *ngIf="config?.sidebar?.enabled"
+    [position]="config?.sidebar?.position || 'sticky'">
+  </app-sidebar>
 
   <div class="content">
-    <h1>{{ 'MAIN_CONTENT.TITLE' | translate }}</h1>
-    
-    <p>Some paragraph text here...</p>
+    <h1>Text template</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi...
+    </p>
+    <p>
+      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt...
+    </p>
+    <p>
+      Mauris tincidunt, nisl non consequat vehicula, libero mauris consequat urna...
+    </p>
   </div>
 </div>
 
-<app-footer *ngIf="config?.footer?.enabled"></app-footer>
+<app-footer
+  *ngIf="config?.footer?.enabled"
+  [position]="config?.footer?.position || 'sticky'">
+</app-footer>

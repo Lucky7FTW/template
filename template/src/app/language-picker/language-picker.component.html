@@ -1,4 +1,7 @@
-<label for="languageSelect">Select Language:</label>
+<label for="languageSelect">
+  {{ 'LANGUAGE_PICKER.SELECT_LANGUAGE' | translate }}
+</label>
+
 <select
   id="languageSelect"
   (change)="onLanguageChange($any($event.target).value)">

@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface LanguageConfig {
   name: string;
@@ -11,7 +12,7 @@ interface LanguageConfig {
   selector: 'app-language-picker',
   templateUrl: './language-picker.component.html',
   styleUrls: ['./language-picker.component.css'],
-  imports: [CommonModule]
+  imports: [CommonModule,TranslateModule]
 })
 export class LanguagePickerComponent {
   @Input() languages: LanguageConfig[] = [];

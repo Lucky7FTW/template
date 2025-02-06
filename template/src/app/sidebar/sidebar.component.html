@@ -1,7 +1,8 @@
-<aside class="sidebar" [ngClass]="cssClass">
+<!-- sidebar.component.html -->
+<aside class="sidebar" [class.sticky]="position === 'sticky'">
   <ul>
-    <li><a href="#">Sidebar Link 1</a></li>
-    <li><a href="#">Sidebar Link 2</a></li>
-    <li><a href="#">Sidebar Link 3</a></li>
+    <li><a href="#">{{ 'SIDEBAR.SIDEBAR_LINK_1' | translate }}</a></li>
+    <li><a href="#">{{ 'SIDEBAR.SIDEBAR_LINK_2' | translate }}</a></li>
+    <li><a href="#">{{ 'SIDEBAR.SIDEBAR_LINK_3' | translate }}</a></li>
   </ul>
 </aside>

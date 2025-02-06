@@ -1,47 +1,47 @@
 <nav class="navbar">
   <ul class="nav-links">
-    <!-- Nav Link 1 -->
+
     <li class="dropdown"
         [class.open]="isDropdownOpen['nav1']"
         [attr.data-trigger]="dropdownTrigger"
         (click)="toggleDropdown('nav1')"
-        (mouseenter)="dropdownTrigger === 'hover' ? onMouseEnter('nav1') : null"
-        (mouseleave)="dropdownTrigger === 'hover' ? onMouseLeave('nav1') : null">
-      <a href="#">Nav Link 1</a>
+        (mouseenter)="onMouseEnter('nav1')"
+        (mouseleave)="onMouseLeave('nav1')">
+      <a href="#">{{ 'NAVBAR.NAV_LINK_1' | translate }}</a>
       <ul class="dropdown-menu">
-        <li><a href="#">Sub Link 1</a></li>
-        <li><a href="#">Sub Link 2</a></li>
-        <li><a href="#">Sub Link 3</a></li>
+        <li><a href="#">{{ 'NAVBAR.SUB_LINK_1' | translate }}</a></li>
+        <li><a href="#">{{ 'NAVBAR.SUB_LINK_2' | translate }}</a></li>
+        <li><a href="#">{{ 'NAVBAR.SUB_LINK_3' | translate }}</a></li>
       </ul>
     </li>
 
-    <!-- Nav Link 2 -->
+
     <li class="dropdown"
         [class.open]="isDropdownOpen['nav2']"
         [attr.data-trigger]="dropdownTrigger"
         (click)="toggleDropdown('nav2')"
-        (mouseenter)="dropdownTrigger === 'hover' ? onMouseEnter('nav2') : null"
-        (mouseleave)="dropdownTrigger === 'hover' ? onMouseLeave('nav2') : null">
-      <a href="#">Nav Link 2</a>
+        (mouseenter)="onMouseEnter('nav2')"
+        (mouseleave)="onMouseLeave('nav2')">
+      <a href="#">{{ 'NAVBAR.NAV_LINK_2' | translate }}</a>
       <ul class="dropdown-menu">
-        <li><a href="#">Option A</a></li>
-        <li><a href="#">Option B</a></li>
-        <li><a href="#">Option C</a></li>
+        <li><a href="#">{{ 'NAVBAR.OPTION_A' | translate }}</a></li>
+        <li><a href="#">{{ 'NAVBAR.OPTION_B' | translate }}</a></li>
+        <li><a href="#">{{ 'NAVBAR.OPTION_C' | translate }}</a></li>
       </ul>
     </li>
 
-    <!-- Separate Dropdown -->
+
     <li class="dropdown"
         [class.open]="isDropdownOpen['dropdown']"
         [attr.data-trigger]="dropdownTrigger"
         (click)="toggleDropdown('dropdown')"
-        (mouseenter)="dropdownTrigger === 'hover' ? onMouseEnter('dropdown') : null"
-        (mouseleave)="dropdownTrigger === 'hover' ? onMouseLeave('dropdown') : null">
-      <a href="#">Dropdown</a>
+        (mouseenter)="onMouseEnter('dropdown')"
+        (mouseleave)="onMouseLeave('dropdown')">
+      <a href="#">{{ 'NAVBAR.DROPDOWN' | translate }}</a>
       <ul class="dropdown-menu">
-        <li><a href="#">Option 1</a></li>
-        <li><a href="#">Option 2</a></li>
-        <li><a href="#">Option 3</a></li>
+        <li><a href="#">{{ 'NAVBAR.SUB_LINK_1' | translate }}</a></li>
+        <li><a href="#">{{ 'NAVBAR.SUB_LINK_2' | translate }}</a></li>
+        <li><a href="#">{{ 'NAVBAR.SUB_LINK_3' | translate }}</a></li>
       </ul>
     </li>
   </ul>

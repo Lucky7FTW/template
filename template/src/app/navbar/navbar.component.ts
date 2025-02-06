@@ -1,10 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   standalone: true,
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
+  imports: [CommonModule,TranslateModule]
 })
 export class NavbarComponent implements OnInit {
   @Input() dropdownTrigger: 'hover' | 'click' = 'hover';
