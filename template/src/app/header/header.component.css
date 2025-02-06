@@ -1,15 +1,16 @@
 header {
   display: flex;
-  align-items: center; /* vertically center items */
-  padding: 0 1rem; /* add some horizontal padding if needed */
+  align-items: center; 
+  padding: 0 1rem; 
 }
 
-/* Optionally, if your title should remain on the left */
 header h1 {
-  margin: 0; /* or your desired margin */
+  margin: 0; 
 }
 
-/* Push the language picker container to the right */
 .language-picker-container {
   margin-left: auto;
+}
+header {
+  padding: 20px;
 }
