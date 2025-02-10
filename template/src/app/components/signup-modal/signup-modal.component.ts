@@ -14,6 +14,7 @@ export class SignupModalComponent {
   password: string = '';
   confirmPassword: string = '';
   errorMessage: string = '';
+  successMessage: string = '';
 
   // Emit an event to notify the parent to close the modal
   @Output() close = new EventEmitter<void>();
@@ -21,16 +22,30 @@ export class SignupModalComponent {
   constructor(private authService: AuthService) {}
 
   signUp(): void {
-    // Check that the passwords match
+    // Ensure that passwords match
     if (this.password !== this.confirmPassword) {
       this.errorMessage = 'Passwords do not match.';
       return;
     }
 
+    // Call the signUp method from AuthService
     this.authService.signUp(this.email, this.password)
       .then(userCredential => {
-        console.log('User signed up successfully:', userCredential);
-        this.close.emit();
+        if (userCredential.user) {
+          // Send verification email
+          userCredential.user.sendEmailVerification()
+            .then(() => {
+              // Optionally, set a success message for the user
+              this.successMessage = 'Verification email sent. Please check your inbox.';
+              console.log('Verification email sent successfully.');
+              // Close the modal or perform further actions as needed
+              this.close.emit();
+            })
+            .catch(error => {
+              console.error('Error sending verification email:', error);
+              this.errorMessage = error.message;
+            });
+        }
       })
       .catch(error => {
         console.error('Sign Up error:', error);
@@ -38,7 +53,6 @@ export class SignupModalComponent {
       });
   }
 
-  // Called when the user clicks outside the modal or on Cancel
   onClose(): void {
     this.close.emit();
   }
