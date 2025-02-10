@@ -8,12 +8,19 @@
       </app-language-picker>
     </div>
     <div class="auth-buttons">
-      <button type="button" (click)="openLoginModal()">Login</button>
-      <button type="button" (click)="openSignupModal()">Sign Up</button>
+      <!-- Show Login/Sign Up buttons when not logged in -->
+      <ng-container *ngIf="!isLoggedIn; else loggedInTemplate">
+        <button type="button" (click)="openLoginModal()">Login</button>
+        <button type="button" (click)="openSignupModal()">Sign Up</button>
+      </ng-container>
+      <!-- Show Logout button when logged in -->
+      <ng-template #loggedInTemplate>
+        <button type="button" (click)="logout()">Logout</button>
+      </ng-template>
     </div>
   </div>
 
+  <!-- Conditionally render the modals -->
   <app-login-modal *ngIf="showLoginModal" (close)="closeLoginModal()"></app-login-modal>
-
   <app-signup-modal *ngIf="showSignupModal" (close)="closeSignupModal()"></app-signup-modal>
 </header>
