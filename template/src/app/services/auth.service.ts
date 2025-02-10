@@ -12,7 +12,6 @@ const firebaseConfig = {
   measurementId: "G-H1T4C9K13Z"
 };
 
-
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
@@ -23,17 +22,30 @@ if (!firebase.apps.length) {
 export class AuthService {
   constructor() {}
 
-
+  /**
+   * Creates a new user account using Firebase Authentication.
+   * @param email The user's email address.
+   * @param password The user's chosen password.
+   * @returns A promise resolving with the user credentials.
+   */
   signUp(email: string, password: string): Promise<firebase.auth.UserCredential> {
     return firebase.auth().createUserWithEmailAndPassword(email, password);
   }
 
-
+  /**
+   * Logs in an existing user using Firebase Authentication.
+   * @param email The user's email address.
+   * @param password The user's password.
+   * @returns A promise resolving with the user credentials.
+   */
   login(email: string, password: string): Promise<firebase.auth.UserCredential> {
     return firebase.auth().signInWithEmailAndPassword(email, password);
   }
 
-
+  /**
+   * Logs out the currently authenticated user.
+   * @returns A promise that resolves once the user is signed out.
+   */
   logout(): Promise<void> {
     return firebase.auth().signOut();
   }

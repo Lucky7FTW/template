@@ -1,16 +1,32 @@
 header {
   display: flex;
-  align-items: center; 
-  padding: 0 1rem; 
+  align-items: center;
+  padding: 20px;
 }
 
 header h1 {
-  margin: 0; 
+  margin: 0;
 }
 
-.language-picker-container {
+
+.right-container {
+  display: flex;
+  align-items: center;
   margin-left: auto;
+  gap: 1rem;
 }
-header {
-  padding: 20px;
+
+.auth-buttons button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.auth-buttons button:hover {
+  background-color: #0056b3;
 }
