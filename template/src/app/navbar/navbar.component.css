@@ -40,18 +40,18 @@
   min-width: 150px;
   z-index: 1001;
   
-  /* Ensure the dropdown menu uses a block layout */
+
   display: block;
 }
 
-/* When dropdown is open, make it visible */
+
 .dropdown.open .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-/* Ensure each dropdown menu item is a block element taking full width */
+
 .dropdown-menu li {
   display: block;
   width: 100%;
@@ -62,7 +62,7 @@
   border-bottom: none;
 }
 
-/* Ensure each link inside a dropdown menu item is block-level */
+
 .dropdown-menu li a {
   display: block;
   width: 100%;
@@ -71,7 +71,7 @@
   transition: background-color 0.3s ease;
 }
 
-/* Hover effect for dropdown menu links */
+
 .dropdown-menu li a:hover {
   background-color: #3a506b;
 }
