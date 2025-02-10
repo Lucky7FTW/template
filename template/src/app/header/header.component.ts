@@ -1,9 +1,10 @@
-// src/app/components/header/header.component.ts
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguagePickerComponent } from '../language-picker/language-picker.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { AuthService } from '../services/auth.service';
+import { LoginModalComponent } from '../components/login-modal/login-modal.component';
+import { SignupModalComponent } from '../components/signup-modal/signup-modal.component';
 
 @Component({
   standalone: true,
@@ -13,7 +14,9 @@ import { AuthService } from '../services/auth.service';
   imports: [
     CommonModule,
     LanguagePickerComponent,
-    TranslateModule
+    TranslateModule,
+    LoginModalComponent,
+    SignupModalComponent
   ]
 })
 export class HeaderComponent implements OnInit {
@@ -25,6 +28,9 @@ export class HeaderComponent implements OnInit {
 
   cssClass = '';
 
+  showLoginModal: boolean = false;
+  showSignupModal: boolean = false;
+
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
@@ -35,17 +41,19 @@ export class HeaderComponent implements OnInit {
     this.languageSelected.emit(langCode);
   }
 
-
   openLoginModal(): void {
-    // For example, you could open a modal component here.
-    // For now, we’ll simply log to the console.
-    console.log('Login modal opened');
-    // Later, you can use the authService.login() method from within your modal component.
+    this.showLoginModal = true;
   }
 
-  // Open the sign up modal (replace this with your modal logic)
+  closeLoginModal(): void {
+    this.showLoginModal = false;
+  }
+
   openSignupModal(): void {
-    console.log('Sign Up modal opened');
-    // Later, you can use the authService.signUp() method from within your modal component.
+    this.showSignupModal = true;
+  }
+
+  closeSignupModal(): void {
+    this.showSignupModal = false;
   }
 }

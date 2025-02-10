@@ -12,4 +12,8 @@
       <button type="button" (click)="openSignupModal()">Sign Up</button>
     </div>
   </div>
+
+  <app-login-modal *ngIf="showLoginModal" (close)="closeLoginModal()"></app-login-modal>
+
+  <app-signup-modal *ngIf="showSignupModal" (close)="closeSignupModal()"></app-signup-modal>
 </header>
