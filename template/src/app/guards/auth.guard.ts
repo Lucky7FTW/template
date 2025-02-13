@@ -21,13 +21,18 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): boolean | UrlTree {
     const user = firebase.auth().currentUser;
+
     if (user) {
-      // User is logged in, allow access
-      return true;
+      console.log('AuthGuard: user is logged in, allowing access.');
+      return true; // Access allowed
     } else {
+      console.warn('AuthGuard: no user, redirecting to root.');
       window.alert('You are not logged in!');
-      
-      return this.router.createUrlTree(['/']);
+
+      // Optionally pass a query param if you want to show a message on the root page
+      return this.router.createUrlTree(['/'], {
+        queryParams: { needsLogin: true }
+      });
     }
   }
 }

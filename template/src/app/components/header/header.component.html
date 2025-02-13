@@ -1,26 +1,38 @@
 <header [ngClass]="cssClass">
   <h1>{{ 'HEADER.TITLE' | translate }}</h1>
+
   <div class="right-container">
+    <!-- Language Picker -->
     <div class="language-picker-container" *ngIf="languages?.length">
       <app-language-picker
         [languages]="languages"
         (languageSelected)="onLanguagePicked($event)">
       </app-language-picker>
     </div>
+
+    <!-- Authentication Buttons -->
     <div class="auth-buttons">
-      <!-- Show Login/Sign Up buttons when not logged in -->
+      <!-- When not logged in, show Login & Sign Up -->
       <ng-container *ngIf="!isLoggedIn; else loggedInTemplate">
         <button type="button" (click)="openLoginModal()">Login</button>
         <button type="button" (click)="openSignupModal()">Sign Up</button>
       </ng-container>
-      <!-- Show Logout button when logged in -->
+      <!-- When logged in, show Profile & Logout -->
       <ng-template #loggedInTemplate>
+        <button type="button" routerLink="/profile">Profile</button>
         <button type="button" (click)="logout()">Logout</button>
       </ng-template>
     </div>
   </div>
 
-  <!-- Conditionally render the modals -->
-  <app-login-modal *ngIf="showLoginModal" (close)="closeLoginModal()"></app-login-modal>
-  <app-signup-modal *ngIf="showSignupModal" (close)="closeSignupModal()"></app-signup-modal>
+  <!-- Conditionally rendered modals -->
+  <app-login-modal
+    *ngIf="showLoginModal"
+    (close)="closeLoginModal()">
+  </app-login-modal>
+
+  <app-signup-modal
+    *ngIf="showSignupModal"
+    (close)="closeSignupModal()">
+  </app-signup-modal>
 </header>

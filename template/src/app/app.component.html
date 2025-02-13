@@ -5,9 +5,7 @@
   (languageSelected)="onLanguageChange($event)">
 </app-header>
 
-<app-navbar
-  *ngIf="config?.navbar?.enabled">
-</app-navbar>
+<app-navbar *ngIf="config?.navbar?.enabled"></app-navbar>
 
 <div class="main-content">
   <app-sidebar
@@ -16,16 +14,8 @@
   </app-sidebar>
 
   <div class="content">
-    <h1>Text template</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi...
-    </p>
-    <p>
-      Suspendisse potenti. Phasellus ut neque ut quam vehicula tincidunt...
-    </p>
-    <p>
-      Mauris tincidunt, nisl non consequat vehicula, libero mauris consequat urna...
-    </p>
+    <!-- Routed components (e.g., Profile page) go here -->
+    <router-outlet></router-outlet>
   </div>
 </div>
 

@@ -1,4 +1,3 @@
-// src/app/components/header/header.component.ts
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguagePickerComponent } from '../language-picker/language-picker.component';
@@ -6,8 +5,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AuthService } from '../services/auth.service';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 import { SignupModalComponent } from '../signup-modal/signup-modal.component';
-import firebase from 'firebase/compat/app'; // Import firebase for auth state listener
+import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -20,7 +20,8 @@ import 'firebase/compat/auth';
     TranslateModule,
     LoginModalComponent,
     SignupModalComponent,
-]
+    RouterModule
+  ]
 })
 export class HeaderComponent implements OnInit {
   @Input() title?: string;
@@ -30,21 +31,29 @@ export class HeaderComponent implements OnInit {
   @Output() languageSelected = new EventEmitter<string>();
 
   cssClass = '';
-  isLoggedIn: boolean = false; // Tracks authentication status
+  isLoggedIn: boolean = false;
+
   showLoginModal: boolean = false;
   showSignupModal: boolean = false;
 
   constructor(private authService: AuthService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.cssClass = `header ${this.position}`;
-    // Listen for authentication state changes
+
     firebase.auth().onAuthStateChanged((user) => {
-      this.isLoggedIn = !!user;
+      console.log('Auth state changed. User = ', user);
+      if (user) {
+        this.isLoggedIn = true;
+        console.log('User is logged in!');
+      } else {
+        this.isLoggedIn = false;
+        console.log('No user is logged in.');
+      }
     });
   }
 
-  onLanguagePicked(langCode: string) {
+  onLanguagePicked(langCode: string): void {
     this.languageSelected.emit(langCode);
   }
 
