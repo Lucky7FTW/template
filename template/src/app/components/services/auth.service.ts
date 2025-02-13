@@ -20,6 +20,9 @@ if (!firebase.apps.length) {
   providedIn: 'root'
 })
 export class AuthService {
+  resetPassword(email: string) {
+    throw new Error('Method not implemented.');
+  }
   constructor() {}
 
   /**
