@@ -1,21 +1,37 @@
 .profile-container {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  .profile-container h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #34495e;
-  }
-  
-  .profile-container p {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
-  }
-  
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.preferences-form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.preferences-form label {
+  margin-top: 0.5rem;
+}
+
+.preferences-form select {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.preferences-form button {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.message {
+  margin-top: 0.5rem;
+  color: green;
+  font-weight: bold;
+}
