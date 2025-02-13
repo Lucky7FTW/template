@@ -1,13 +1,17 @@
+// src/app/components/navbar/navbar.component.ts
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 
 @Component({
   standalone: true,
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
-  imports: [CommonModule,TranslateModule]
+  imports: [CommonModule, TranslateModule, RouterModule]
 })
 export class NavbarComponent implements OnInit {
   @Input() dropdownTrigger: 'hover' | 'click' = 'hover';
@@ -19,7 +23,15 @@ export class NavbarComponent implements OnInit {
     dropdown: false
   };
 
-  ngOnInit() {}
+  // Track if the user is logged in
+  isLoggedIn: boolean = false;
+
+  ngOnInit() {
+    // Subscribe to Firebase auth state changes
+    firebase.auth().onAuthStateChanged((user) => {
+      this.isLoggedIn = !!user;
+    });
+  }
 
   toggleDropdown(key: string) {
     if (this.dropdownTrigger === 'click') {

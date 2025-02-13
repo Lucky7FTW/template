@@ -22,11 +22,11 @@ export class AuthGuard implements CanActivate {
   ): boolean | UrlTree {
     const user = firebase.auth().currentUser;
     if (user) {
-
+      // User is logged in, allow access
       return true;
     } else {
-        
       window.alert('You are not logged in!');
+      
       return this.router.createUrlTree(['/']);
     }
   }

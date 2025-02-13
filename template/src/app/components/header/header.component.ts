@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { LanguagePickerComponent } from '../language-picker/language-picker.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { AuthService } from '../services/auth.service';
-import { LoginModalComponent } from '../components/login-modal/login-modal.component';
-import { SignupModalComponent } from '../components/signup-modal/signup-modal.component';
+import { LoginModalComponent } from '../login-modal/login-modal.component';
+import { SignupModalComponent } from '../signup-modal/signup-modal.component';
 import firebase from 'firebase/compat/app'; // Import firebase for auth state listener
 import 'firebase/compat/auth';
 

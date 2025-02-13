@@ -1,6 +1,11 @@
+<!-- src/app/components/navbar/navbar.component.html -->
 <nav class="navbar">
   <ul class="nav-links">
-
+    <!-- My Profile link, only visible when logged in -->
+    <li *ngIf="isLoggedIn">
+      <a routerLink="/profile">{{ 'NAVBAR.MY_PROFILE' | translate }}</a>
+    </li>
+    
     <li class="dropdown"
         [class.open]="isDropdownOpen['nav1']"
         [attr.data-trigger]="dropdownTrigger"
@@ -15,7 +20,6 @@
       </ul>
     </li>
 
-
     <li class="dropdown"
         [class.open]="isDropdownOpen['nav2']"
         [attr.data-trigger]="dropdownTrigger"
@@ -29,7 +33,6 @@
         <li><a href="#">{{ 'NAVBAR.OPTION_C' | translate }}</a></li>
       </ul>
     </li>
-
 
     <li class="dropdown"
         [class.open]="isDropdownOpen['dropdown']"
