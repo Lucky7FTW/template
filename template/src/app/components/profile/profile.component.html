@@ -1,0 +1,12 @@
+<div class="profile-container">
+    <h1>My Profile</h1>
+    <div *ngIf="user; else noUser">
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Name:</strong> {{ user.displayName || 'Not set' }}</p>
+      <!-- Additional user details can be added here -->
+    </div>
+    <ng-template #noUser>
+      <p>No user is currently logged in.</p>
+    </ng-template>
+  </div>
+  
