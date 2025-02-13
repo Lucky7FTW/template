@@ -6,6 +6,5 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes)
-    // you can add more providers here if needed
   ]
 };

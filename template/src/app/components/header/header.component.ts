@@ -2,12 +2,12 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguagePickerComponent } from '../language-picker/language-picker.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 import { SignupModalComponent } from '../signup-modal/signup-modal.component';
+import { RouterModule } from '@angular/router';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -33,22 +33,23 @@ export class HeaderComponent implements OnInit {
   cssClass = '';
   isLoggedIn: boolean = false;
 
-  showLoginModal: boolean = false;
-  showSignupModal: boolean = false;
+  showLoginModal = false;
+  showSignupModal = false;
 
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
+    // Applies the position to the CSS class
     this.cssClass = `header ${this.position}`;
 
-    firebase.auth().onAuthStateChanged((user) => {
-      console.log('Auth state changed. User = ', user);
+    // Make sure to type user as firebase.User | null (optional in TS but helps)
+    this.authService.user$.subscribe((user: firebase.User | null) => {
       if (user) {
         this.isLoggedIn = true;
-        console.log('User is logged in!');
+        console.log('HeaderComponent: user is logged in:', user.email);
       } else {
         this.isLoggedIn = false;
-        console.log('No user is logged in.');
+        console.log('HeaderComponent: no user is logged in');
       }
     });
   }

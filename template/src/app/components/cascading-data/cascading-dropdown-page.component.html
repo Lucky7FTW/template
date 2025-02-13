@@ -1,0 +1,35 @@
+<div class="cascading-dropdown-page">
+  <h1>{{ 'CASCADING_PAGE.TITLE' | translate }}</h1>
+
+  <!-- Error Message -->
+  <div class="error" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Country Dropdown -->
+  <div class="dropdown-group">
+    <label for="countrySelect">{{ 'CASCADING_PAGE.COUNTRY' | translate }}</label>
+    <select id="countrySelect" [(ngModel)]="selectedCountry" (change)="onCountryChange()">
+      <option value="">{{ 'CASCADING_PAGE.SELECT_COUNTRY' | translate }}</option>
+      <option *ngFor="let c of countries" [value]="c.code">
+        {{ c.name }}
+      </option>
+    </select>
+  </div>
+
+  <!-- City Dropdown -->
+  <div class="dropdown-group">
+    <label for="citySelect">{{ 'CASCADING_PAGE.CITY' | translate }}</label>
+    <select id="citySelect" [(ngModel)]="selectedCity">
+      <option value="">{{ 'CASCADING_PAGE.SELECT_CITY' | translate }}</option>
+      <option *ngFor="let c of cities" [value]="c.id">
+        {{ c.name }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="button" (click)="onSubmit()">
+    {{ 'CASCADING_PAGE.SAVE_SELECTIONS' | translate }}
+  </button>
+</div>
