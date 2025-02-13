@@ -2,14 +2,12 @@
 import { Routes } from '@angular/router';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
+import { CascadingDropdownPageComponent } from './pages/cascading-dropdown-page/cascading-dropdown-page.component';
 
 export const routes: Routes = [
-  // The "profile" route you had in AppRoutingModule
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
 
-  // If you don't have a real home component, you can do:
-  // { path: '', component: SomeHomeComponent },  (optional)
+  { path: 'cascading', component: CascadingDropdownPageComponent, canActivate: [AuthGuard] },
 
-  // Redirect unknown routes
   { path: '**', redirectTo: '/' }
 ];
