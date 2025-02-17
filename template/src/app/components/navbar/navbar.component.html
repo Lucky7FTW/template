@@ -1,9 +1,13 @@
-<!-- src/app/components/navbar/navbar.component.html -->
 <nav class="navbar">
   <ul class="nav-links">
     <!-- My Profile link, only visible when logged in -->
     <li *ngIf="isLoggedIn">
       <a routerLink="/profile">{{ 'NAVBAR.MY_PROFILE' | translate }}</a>
+    </li>
+    
+    <!-- Cascading link, visible when logged in -->
+    <li *ngIf="isLoggedIn">
+      <a routerLink="/cascading">{{ 'NAVBAR.CASCADING' | translate }}</a>
     </li>
     
     <li class="dropdown"
