@@ -1,28 +1,53 @@
 {
-    "HEADER": {
-      "TITLE": "Mein Angular Template"
-    },
-    "LANGUAGE_PICKER": {
-      "SELECT_LANGUAGE": "Sprache auswählen"
-    },
-    "NAVBAR": {
-      "NAV_LINK_1": "Navigationslink 1",
-      "NAV_LINK_2": "Navigationslink 2",
-      "DROPDOWN": "Dropdown",
-      "SUB_LINK_1": "Unterlink 1",
-      "SUB_LINK_2": "Unterlink 2",
-      "SUB_LINK_3": "Unterlink 3",
-      "OPTION_A": "Option A",
-      "OPTION_B": "Option B",
-      "OPTION_C": "Option C"
-    },
-    "SIDEBAR": {
-      "SIDEBAR_LINK_1": "Seitenleistenlink 1",
-      "SIDEBAR_LINK_2": "Seitenleistenlink 2",
-      "SIDEBAR_LINK_3": "Seitenleistenlink 3"
-    },
-    "FOOTER": {
-      "CONTENT": "Footer Inhalt"
-    }
+  "HEADER": {
+    "TITLE": "Mein Angular Template"
+  },
+  "LANGUAGE_PICKER": {
+    "SELECT_LANGUAGE": "Sprache auswählen"
+  },
+  "NAVBAR": {
+    "MY_PROFILE": "Mein Profil",
+    "CASCADING": "Kaskadierung",
+    "NAV_LINK_1": "Navigationslink 1",
+    "NAV_LINK_2": "Navigationslink 2",
+    "DROPDOWN": "Dropdown",
+    "SUB_LINK_1": "Unterlink 1",
+    "SUB_LINK_2": "Unterlink 2",
+    "SUB_LINK_3": "Unterlink 3",
+    "OPTION_A": "Option A",
+    "OPTION_B": "Option B",
+    "OPTION_C": "Option C"
+  },
+  "SIDEBAR": {
+    "SIDEBAR_LINK_1": "Seitenleistenlink 1",
+    "SIDEBAR_LINK_2": "Seitenleistenlink 2",
+    "SIDEBAR_LINK_3": "Seitenleistenlink 3"
+  },
+  "FOOTER": {
+    "CONTENT": "Footer Inhalt"
+  },
+  "LOGIN_MODAL": {
+    "TITLE": "Anmeldung",
+    "EMAIL": "E-Mail",
+    "PASSWORD": "Passwort",
+    "LOGIN_BUTTON": "Einloggen",
+    "CANCEL_BUTTON": "Abbrechen",
+    "FORGOT_PASSWORD": "Passwort vergessen?"
+  },
+  "NOT_FOUND": {
+    "TITLE": "404 - Seite nicht gefunden",
+    "MESSAGE": "Entschuldigung, die gesuchte Seite existiert nicht."
+  },
+  "CASCADING_PAGE": {
+    "TITLE": "Kaskadierendes Dropdown",
+    "COUNTRY": "Land",
+    "SELECT_COUNTRY": "Wählen Sie ein Land",
+    "CITY": "Stadt",
+    "SELECT_CITY": "Wählen Sie eine Stadt",
+    "SAVE_SELECTIONS": "Auswahl speichern"
+  },
+  "ERRORS": {
+    "MUST_SELECT_ALL": "Bitte wählen Sie sowohl ein Land als auch eine Stadt aus.",
+    "GENERIC_ERROR": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
   }
-  
+}
