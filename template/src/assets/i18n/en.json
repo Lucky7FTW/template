@@ -6,6 +6,8 @@
     "SELECT_LANGUAGE": "Select Language"
   },
   "NAVBAR": {
+    "MY_PROFILE": "My Profile",
+    "CASCADING": "Cascading",
     "NAV_LINK_1": "Nav Link 1",
     "NAV_LINK_2": "Nav Link 2",
     "DROPDOWN": "Dropdown",
@@ -14,9 +16,7 @@
     "SUB_LINK_3": "Sub Link 3",
     "OPTION_A": "Option A",
     "OPTION_B": "Option B",
-    "OPTION_C": "Option C",
-    "MY_PROFILE": "My Profile",
-    "CASCADING": "Cascading"
+    "OPTION_C": "Option C"
   },
   "SIDEBAR": {
     "SIDEBAR_LINK_1": "Sidebar Link 1",
@@ -25,6 +25,18 @@
   },
   "FOOTER": {
     "CONTENT": "Footer Content"
+  },
+  "LOGIN_MODAL": {
+    "TITLE": "Login",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "LOGIN_BUTTON": "Login",
+    "CANCEL_BUTTON": "Cancel",
+    "FORGOT_PASSWORD": "Forgot Password?"
+  },
+  "NOT_FOUND": {
+    "TITLE": "404 - Page Not Found",
+    "MESSAGE": "Sorry, the page you are looking for doesn't exist."
   },
   "CASCADING_PAGE": {
     "TITLE": "Cascading Dropdown",
