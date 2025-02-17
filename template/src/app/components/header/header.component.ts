@@ -5,6 +5,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../services/auth.service';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 import { SignupModalComponent } from '../signup-modal/signup-modal.component';
+import { ResetPasswordModalComponent } from '../reset-password-modal/reset-password-modal.component';
 import { RouterModule } from '@angular/router';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
@@ -21,7 +22,8 @@ import 'firebase/compat/firestore';
     TranslateModule,
     LoginModalComponent,
     SignupModalComponent,
-    RouterModule
+    RouterModule,
+    ResetPasswordModalComponent
   ]
 })
 export class HeaderComponent implements OnInit {
@@ -36,23 +38,21 @@ export class HeaderComponent implements OnInit {
 
   // Hold user's preferences
   userPreferredLanguage: string = 'en';
-  userPageMode: string = 'light'; // Default; will be updated from Firestore
+  userPageMode: string = 'light'; // Default; updated from Firestore
 
   showLoginModal = false;
   showSignupModal = false;
+  showResetPasswordModal = false; // New flag
 
   constructor(private authService: AuthService, private translate: TranslateService) {}
 
   ngOnInit(): void {
-    // Set the header CSS class based on the provided position
     this.cssClass = `header ${this.position}`;
 
-    // Subscribe to auth state changes
     this.authService.user$.subscribe((user: firebase.User | null) => {
       if (user) {
         this.isLoggedIn = true;
         console.log('HeaderComponent: user is logged in:', user.email);
-        // Load user preferences from Firestore
         firebase.firestore().collection('preferences').doc(user.uid)
           .get()
           .then(doc => {
@@ -61,9 +61,7 @@ export class HeaderComponent implements OnInit {
               this.userPreferredLanguage = prefs ? prefs['defaultLanguage'] || 'en' : 'en';
               this.userPageMode = prefs ? prefs['pageMode'] || 'light' : 'light';
               console.log('Loaded preferences:', prefs);
-              // Update translation language
               this.translate.use(this.userPreferredLanguage);
-              // Apply page mode (dark or light)
               this.applyPageMode(this.userPageMode);
             } else {
               console.log('No preferences found; using defaults.');
@@ -110,6 +108,16 @@ export class HeaderComponent implements OnInit {
       .catch((error) => {
         console.error('Error logging out:', error);
       });
+  }
+
+  onForgotPassword(): void {
+    // Close login modal and open reset password modal.
+    this.showLoginModal = false;
+    this.showResetPasswordModal = true;
+  }
+
+  closeResetPasswordModal(): void {
+    this.showResetPasswordModal = false;
   }
 
   private applyPageMode(mode: string): void {

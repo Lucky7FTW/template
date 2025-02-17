@@ -1,5 +1,9 @@
 <header [ngClass]="cssClass">
-  <h1>{{ 'HEADER.TITLE' | translate }}</h1>
+  <h1>
+    <a routerLink="/" style="color: inherit; text-decoration: none; cursor: pointer;">
+      {{ 'HEADER.TITLE' | translate }}
+    </a>
+  </h1>
 
   <div class="right-container">
     <!-- Language Picker -->
@@ -24,7 +28,8 @@
     </div>
   </div>
 
-  <!-- Conditionally rendered modals -->
-  <app-login-modal *ngIf="showLoginModal" (close)="closeLoginModal()"></app-login-modal>
+  <!-- Modals -->
+  <app-login-modal *ngIf="showLoginModal" (close)="closeLoginModal()" (forgotPassword)="onForgotPassword()"></app-login-modal>
   <app-signup-modal *ngIf="showSignupModal" (close)="closeSignupModal()"></app-signup-modal>
+  <app-reset-password-modal *ngIf="showResetPasswordModal" (close)="closeResetPasswordModal()"></app-reset-password-modal>
 </header>
