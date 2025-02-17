@@ -6,6 +6,7 @@
     <div class="language-picker-container" *ngIf="languages?.length">
       <app-language-picker
         [languages]="languages"
+        [selectedLanguage]="userPreferredLanguage"
         (languageSelected)="onLanguagePicked($event)">
       </app-language-picker>
     </div>
@@ -26,13 +27,6 @@
   </div>
 
   <!-- Conditionally rendered modals -->
-  <app-login-modal
-    *ngIf="showLoginModal"
-    (close)="closeLoginModal()">
-  </app-login-modal>
-
-  <app-signup-modal
-    *ngIf="showSignupModal"
-    (close)="closeSignupModal()">
-  </app-signup-modal>
+  <app-login-modal *ngIf="showLoginModal" (close)="closeLoginModal()"></app-login-modal>
+  <app-signup-modal *ngIf="showSignupModal" (close)="closeSignupModal()"></app-signup-modal>
 </header>

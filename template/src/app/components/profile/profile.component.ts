@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit {
   // Preferences with default values
   defaultLanguage: string = 'en';
   pageMode: string = 'light'; // "light" or "dark"
+  //default separat
   
   // UI message for feedback
   message: string = '';
