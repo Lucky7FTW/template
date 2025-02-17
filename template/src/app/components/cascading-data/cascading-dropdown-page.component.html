@@ -11,7 +11,7 @@
     <label for="countrySelect">{{ 'CASCADING_PAGE.COUNTRY' | translate }}</label>
     <select id="countrySelect" [(ngModel)]="selectedCountry" (change)="onCountryChange()">
       <option value="">{{ 'CASCADING_PAGE.SELECT_COUNTRY' | translate }}</option>
-      <option *ngFor="let c of countries" [value]="c.code">
+      <option *ngFor="let c of countries" [value]="c.iso2">
         {{ c.name }}
       </option>
     </select>

@@ -21,36 +21,34 @@ export class CascadingDropdownPageComponent implements OnInit {
   // For error messages
   errorMessage: string | null = null;
 
-  // RapidAPI credentials for the Country State City Search REST API
-  private rapidApiKey = '0a7e822956msh0bef10d17495a63p15f36cjsn0581d5a9520c';
-  private rapidApiHost = 'country-state-city-search-rest-api.p.rapidapi.com';
+  // API credentials and base URL for countrystatecity.in API
+  private apiKey: string = 'eUNSTng4NjZ1R1lzQ3RRYVZsbVlUZ2RzaHVOcGhKa1M2SXYxQ1kzdw==';
+  private apiBaseUrl: string = 'https://api.countrystatecity.in/v1';
 
   constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
-    // Load all countries when the component initializes
     this.loadAllCountries();
   }
 
   /**
    * Load all countries via XHR.
-   * Note: We use '/countries/all' because '/countries' returned a 404.
-   * Endpoint: GET https://{rapidApiHost}/countries/all
+   * Endpoint: GET https://api.countrystatecity.in/v1/countries
    */
   private loadAllCountries(): void {
-    const url = `https://${this.rapidApiHost}/countries/all`;
+    const url = `${this.apiBaseUrl}/countries`;
 
     const xhr = new XMLHttpRequest();
-    // Credentials are not needed in this API (set to false)
-    xhr.withCredentials = false;
+    xhr.withCredentials = false; // Credentials not needed for this API
 
     xhr.addEventListener('readystatechange', () => {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
           try {
             const res = JSON.parse(xhr.responseText);
-            // Assume the API returns the countries array in res.data (adjust if needed)
-            this.countries = res.data || [];
+            // Depending on the API, res might be an array or an object with a "data" property.
+            // Here we assume it's an array. Adjust if needed.
+            this.countries = Array.isArray(res) ? res : (res.data || []);
             console.log('All Countries =>', this.countries);
           } catch (err) {
             console.error('Error parsing countries JSON:', err);
@@ -64,14 +62,13 @@ export class CascadingDropdownPageComponent implements OnInit {
     });
 
     xhr.open('GET', url);
-    xhr.setRequestHeader('x-rapidapi-key', this.rapidApiKey);
-    xhr.setRequestHeader('x-rapidapi-host', this.rapidApiHost);
+    xhr.setRequestHeader('X-CSCAPI-KEY', this.apiKey);
     xhr.send(null);
   }
 
   /**
    * When the user picks a country, load the list of cities for that country.
-   * Endpoint: GET https://{rapidApiHost}/cities-by-countrycode?countrycode={selectedCountry}
+   * Endpoint: GET https://api.countrystatecity.in/v1/countries/{countryCode}/cities
    */
   onCountryChange(): void {
     if (!this.selectedCountry) {
@@ -80,9 +77,7 @@ export class CascadingDropdownPageComponent implements OnInit {
       return;
     }
 
-    // Convert the selected country code to lowercase if the API expects it (adjust as needed)
-    const countryCode = this.selectedCountry.toLowerCase();
-    const url = `https://${this.rapidApiHost}/cities-by-countrycode?countrycode=${countryCode}`;
+    const url = `${this.apiBaseUrl}/countries/${this.selectedCountry}/cities`;
 
     const xhr = new XMLHttpRequest();
     xhr.withCredentials = false;
@@ -92,8 +87,8 @@ export class CascadingDropdownPageComponent implements OnInit {
         if (xhr.status === 200) {
           try {
             const res = JSON.parse(xhr.responseText);
-            // Assume the API returns cities in res.data
-            this.cities = res.data || [];
+            // Assume the API returns an array of cities, or an object with a "data" property.
+            this.cities = Array.isArray(res) ? res : (res.data || []);
             console.log(`Cities for country '${this.selectedCountry}' =>`, this.cities);
             this.selectedCity = '';
           } catch (err) {
@@ -113,8 +108,7 @@ export class CascadingDropdownPageComponent implements OnInit {
     });
 
     xhr.open('GET', url);
-    xhr.setRequestHeader('x-rapidapi-key', this.rapidApiKey);
-    xhr.setRequestHeader('x-rapidapi-host', this.rapidApiHost);
+    xhr.setRequestHeader('X-CSCAPI-KEY', this.apiKey);
     xhr.send(null);
   }
 
