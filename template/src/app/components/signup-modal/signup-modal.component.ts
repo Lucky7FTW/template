@@ -1,11 +1,12 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // For ngModel
+import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-signup-modal',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule ],
   templateUrl: './signup-modal.component.html',
   styleUrls: ['./signup-modal.component.css']
 })
