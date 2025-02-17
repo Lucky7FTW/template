@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // for ngModel
+import { FormsModule } from '@angular/forms';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
-// Define an interface for user preferences
 interface UserPreferences {
   defaultLanguage?: string;
   pageMode?: string;
@@ -14,7 +14,7 @@ interface UserPreferences {
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslateModule],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
@@ -23,17 +23,23 @@ export class ProfileComponent implements OnInit {
   
   // Preferences with default values
   defaultLanguage: string = 'en';
-  pageMode: string = 'light'; // "light" or "dark"
-  //default separat
+  pageMode: string = 'light';
   
-  // UI message for feedback
   message: string = '';
+
+  // Available languages for the dropdown
+  availableLanguages = [
+    { value: 'de', label: 'German' },
+    { value: 'en', label: 'English' },
+    { value: 'fr', label: 'French' }
+  ];
+
+  constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
     // Get current user from Firebase Auth
     this.user = firebase.auth().currentUser;
     if (this.user) {
-      // Use onSnapshot to load preferences in real time
       firebase.firestore().collection('preferences').doc(this.user.uid)
         .onSnapshot(doc => {
           if (doc.exists) {
@@ -41,8 +47,11 @@ export class ProfileComponent implements OnInit {
             this.defaultLanguage = prefs.defaultLanguage || 'en';
             this.pageMode = prefs.pageMode || 'light';
             console.log('Loaded preferences from Firestore:', prefs);
+            // Update translation language
+            this.translate.use(this.defaultLanguage);
           } else {
             console.log('No preferences found in Firestore, using defaults.');
+            this.translate.use(this.defaultLanguage);
           }
         }, error => {
           console.error('Error loading preferences from Firestore:', error);
