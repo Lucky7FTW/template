@@ -1,28 +1,41 @@
 {
-    "HEADER": {
-      "TITLE": "My Angular Template"
-    },
-    "LANGUAGE_PICKER": {
-      "SELECT_LANGUAGE": "Select Language"
-    },
-    "NAVBAR": {
-      "NAV_LINK_1": "Nav Link 1",
-      "NAV_LINK_2": "Nav Link 2",
-      "DROPDOWN": "Dropdown",
-      "SUB_LINK_1": "Sub Link 1",
-      "SUB_LINK_2": "Sub Link 2",
-      "SUB_LINK_3": "Sub Link 3",
-      "OPTION_A": "Option A",
-      "OPTION_B": "Option B",
-      "OPTION_C": "Option C"
-    },
-    "SIDEBAR": {
-      "SIDEBAR_LINK_1": "Sidebar Link 1",
-      "SIDEBAR_LINK_2": "Sidebar Link 2",
-      "SIDEBAR_LINK_3": "Sidebar Link 3"
-    },
-    "FOOTER": {
-      "CONTENT": "Footer Content"
-    }
+  "HEADER": {
+    "TITLE": "My Angular Template"
+  },
+  "LANGUAGE_PICKER": {
+    "SELECT_LANGUAGE": "Select Language"
+  },
+  "NAVBAR": {
+    "NAV_LINK_1": "Nav Link 1",
+    "NAV_LINK_2": "Nav Link 2",
+    "DROPDOWN": "Dropdown",
+    "SUB_LINK_1": "Sub Link 1",
+    "SUB_LINK_2": "Sub Link 2",
+    "SUB_LINK_3": "Sub Link 3",
+    "OPTION_A": "Option A",
+    "OPTION_B": "Option B",
+    "OPTION_C": "Option C",
+    "MY_PROFILE": "My Profile",
+    "CASCADING": "Cascading"
+  },
+  "SIDEBAR": {
+    "SIDEBAR_LINK_1": "Sidebar Link 1",
+    "SIDEBAR_LINK_2": "Sidebar Link 2",
+    "SIDEBAR_LINK_3": "Sidebar Link 3"
+  },
+  "FOOTER": {
+    "CONTENT": "Footer Content"
+  },
+  "CASCADING_PAGE": {
+    "TITLE": "Cascading Dropdown",
+    "COUNTRY": "Country",
+    "SELECT_COUNTRY": "Select a country",
+    "CITY": "City",
+    "SELECT_CITY": "Select a city",
+    "SAVE_SELECTIONS": "Save Selections"
+  },
+  "ERRORS": {
+    "MUST_SELECT_ALL": "Please select both country and city.",
+    "GENERIC_ERROR": "An error occurred. Please try again."
   }
-  
+}
