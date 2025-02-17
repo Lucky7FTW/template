@@ -172,3 +172,14 @@ label[for="languageSelect"] {
     font-size: 0.8rem;
   }
 }
+
+
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-mode body {
+  background-color: #121212;
+  color: #000000;
+}

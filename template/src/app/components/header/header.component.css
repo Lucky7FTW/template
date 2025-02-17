@@ -1,8 +1,9 @@
-
 header {
   display: flex;
   align-items: center;
   padding: 20px;
+  background-color: #fff;
+  color: #000;
 }
 
 header h1 {
@@ -29,4 +30,23 @@ header h1 {
 
 .auth-buttons button:hover {
   background-color: #0056b3;
+}
+
+/* Dark mode styles */
+.dark-mode header {
+  background-color: #222;
+  color: #ffffff;
+}
+
+.dark-mode header h1 {
+  color: #eee;
+}
+
+.dark-mode .auth-buttons button {
+  background-color: #444;
+  color: #fff;
+}
+
+.dark-mode .auth-buttons button:hover {
+  background-color: #333;
 }

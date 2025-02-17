@@ -34,39 +34,41 @@ export class HeaderComponent implements OnInit {
   cssClass = '';
   isLoggedIn: boolean = false;
 
-  // This property holds the user's preferred language from Firestore
+  // Hold user's preferences
   userPreferredLanguage: string = 'en';
+  userPageMode: string = 'light'; // Default; will be updated from Firestore
 
   showLoginModal = false;
   showSignupModal = false;
 
-  constructor(
-    private authService: AuthService,
-    private translate: TranslateService
-  ) {}
+  constructor(private authService: AuthService, private translate: TranslateService) {}
 
   ngOnInit(): void {
-    // Set the CSS class based on position
+    // Set the header CSS class based on the provided position
     this.cssClass = `header ${this.position}`;
 
-    // Subscribe to user changes via AuthService
+    // Subscribe to auth state changes
     this.authService.user$.subscribe((user: firebase.User | null) => {
       if (user) {
         this.isLoggedIn = true;
         console.log('HeaderComponent: user is logged in:', user.email);
-        // Load user preferences from Firestore:
+        // Load user preferences from Firestore
         firebase.firestore().collection('preferences').doc(user.uid)
           .get()
           .then(doc => {
             if (doc.exists) {
               const prefs = doc.data();
-              // Use bracket notation if necessary:
-              this.userPreferredLanguage = prefs?.['defaultLanguage'] || 'en';
-              console.log('User preferred language:', this.userPreferredLanguage);
-              // Optionally, update the app language immediately:
+              this.userPreferredLanguage = prefs ? prefs['defaultLanguage'] || 'en' : 'en';
+              this.userPageMode = prefs ? prefs['pageMode'] || 'light' : 'light';
+              console.log('Loaded preferences:', prefs);
+              // Update translation language
               this.translate.use(this.userPreferredLanguage);
+              // Apply page mode (dark or light)
+              this.applyPageMode(this.userPageMode);
             } else {
-              console.log('No preferences found; using default language.');
+              console.log('No preferences found; using defaults.');
+              this.translate.use(this.userPreferredLanguage);
+              this.applyPageMode(this.userPageMode);
             }
           })
           .catch(error => {
@@ -108,5 +110,14 @@ export class HeaderComponent implements OnInit {
       .catch((error) => {
         console.error('Error logging out:', error);
       });
+  }
+
+  private applyPageMode(mode: string): void {
+    console.log('Applying page mode:', mode);
+    if (mode === 'dark') {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
   }
 }

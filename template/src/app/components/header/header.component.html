@@ -13,12 +13,10 @@
 
     <!-- Authentication Buttons -->
     <div class="auth-buttons">
-      <!-- When not logged in, show Login & Sign Up -->
       <ng-container *ngIf="!isLoggedIn; else loggedInTemplate">
         <button type="button" (click)="openLoginModal()">Login</button>
         <button type="button" (click)="openSignupModal()">Sign Up</button>
       </ng-container>
-      <!-- When logged in, show Profile & Logout -->
       <ng-template #loggedInTemplate>
         <button type="button" routerLink="/profile">Profile</button>
         <button type="button" (click)="logout()">Logout</button>
