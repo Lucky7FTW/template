@@ -15,6 +15,7 @@
         {{ c.name }}
       </option>
     </select>
+    <div class="loading" *ngIf="isLoadingCountries">Loading countries...</div>
   </div>
 
   <!-- City Dropdown -->
@@ -26,10 +27,7 @@
         {{ c.name }}
       </option>
     </select>
+    <div class="loading" *ngIf="isLoadingCities">Loading cities...</div>
   </div>
 
-  <!-- Submit Button -->
-  <button type="button" (click)="onSubmit()">
-    {{ 'CASCADING_PAGE.SAVE_SELECTIONS' | translate }}
-  </button>
 </div>

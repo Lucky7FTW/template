@@ -21,6 +21,10 @@ export class CascadingDropdownPageComponent implements OnInit {
   // For error messages
   errorMessage: string | null = null;
 
+  // Loading flags for spinners
+  isLoadingCountries: boolean = false;
+  isLoadingCities: boolean = false;
+
   // API credentials and base URL for countrystatecity.in API
   private apiKey: string = 'eUNSTng4NjZ1R1lzQ3RRYVZsbVlUZ2RzaHVOcGhKa1M2SXYxQ1kzdw==';
   private apiBaseUrl: string = 'https://api.countrystatecity.in/v1';
@@ -37,17 +41,18 @@ export class CascadingDropdownPageComponent implements OnInit {
    */
   private loadAllCountries(): void {
     const url = `${this.apiBaseUrl}/countries`;
+    this.isLoadingCountries = true;
 
     const xhr = new XMLHttpRequest();
     xhr.withCredentials = false; // Credentials not needed for this API
 
     xhr.addEventListener('readystatechange', () => {
       if (xhr.readyState === XMLHttpRequest.DONE) {
+        this.isLoadingCountries = false;
         if (xhr.status === 200) {
           try {
             const res = JSON.parse(xhr.responseText);
-            // Depending on the API, res might be an array or an object with a "data" property.
-            // Here we assume it's an array. Adjust if needed.
+            // API might return an array or an object with a "data" property.
             this.countries = Array.isArray(res) ? res : (res.data || []);
             console.log('All Countries =>', this.countries);
           } catch (err) {
@@ -77,6 +82,7 @@ export class CascadingDropdownPageComponent implements OnInit {
       return;
     }
 
+    this.isLoadingCities = true;
     const url = `${this.apiBaseUrl}/countries/${this.selectedCountry}/cities`;
 
     const xhr = new XMLHttpRequest();
@@ -84,10 +90,11 @@ export class CascadingDropdownPageComponent implements OnInit {
 
     xhr.addEventListener('readystatechange', () => {
       if (xhr.readyState === XMLHttpRequest.DONE) {
+        this.isLoadingCities = false;
         if (xhr.status === 200) {
           try {
             const res = JSON.parse(xhr.responseText);
-            // Assume the API returns an array of cities, or an object with a "data" property.
+            // API might return an array or an object with a "data" property.
             this.cities = Array.isArray(res) ? res : (res.data || []);
             console.log(`Cities for country '${this.selectedCountry}' =>`, this.cities);
             this.selectedCity = '';

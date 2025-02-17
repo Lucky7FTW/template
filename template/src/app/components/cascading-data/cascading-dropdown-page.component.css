@@ -28,3 +28,10 @@
   padding: 0.5rem;
   font-size: 1rem;
 }
+
+/* Loading message styling */
+.loading {
+  font-style: italic;
+  color: #888;
+  margin-top: 0.5rem;
+}
